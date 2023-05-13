@@ -32,8 +32,8 @@ public class Workspace extends Gmail{
         LocalTime[][] arr = new LocalTime[2][size];
         int idx = 0;
         for(Meeting meeting : calendar) {
-            arr[idx][0] = meeting.getStartTime();
-            arr[idx][1] = meeting.getEndTime();
+            arr[0][idx] = meeting.getStartTime();
+            arr[1][idx] = meeting.getEndTime();
             idx++;
         }
 
@@ -42,7 +42,7 @@ public class Workspace extends Gmail{
         idx = 1;
         LocalTime endTime = arr[0][1];
         while(idx < arr.length) {
-            LocalTime startTime = arr[idx][0];
+            LocalTime startTime = arr[0][idx];
             if(startTime.isAfter(endTime)) {
                 endTime = startTime;
                 maxMeetings++;
